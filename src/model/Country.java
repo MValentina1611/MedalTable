@@ -4,12 +4,12 @@ package model;
 public class Country {
 
 	private String countryName; 
-	private int goldMedals, silverMedales, bronzeMedals;
+	private int goldMedals, silverMedals, bronzeMedals;
 	
 	public Country(String countryName, int goldMedals, int silverMedales, int bronzeMedals) {
 		this.countryName = countryName;
 		this.goldMedals = goldMedals;
-		this.silverMedales = silverMedales;
+		this.silverMedals = silverMedales;
 		this.bronzeMedals = bronzeMedals;
 		
 	}
@@ -19,8 +19,8 @@ public class Country {
 	public int getGoldMedals() {
 		return goldMedals;
 	}
-	public int getSilverMedales() {
-		return silverMedales;
+	public int getSilverMedals() {
+		return silverMedals;
 	}
 	public int getBronzeMedals() {
 		return bronzeMedals;
@@ -31,13 +31,18 @@ public class Country {
 	public void setGoldMedals(int goldMedals) {
 		this.goldMedals = goldMedals;
 	}
-	public void setSilverMedales(int silverMedales) {
-		this.silverMedales = silverMedales;
+	public void setSilverMedals(int silverMedals) {
+		this.silverMedals = silverMedals;
 	}
 	public void setBronzeMedals(int bronzeMedals) {
 		this.bronzeMedals = bronzeMedals;
 	}
 
-	
+	public String toString()
+	{
+		String info = countryName +" "+goldMedals+" "+silverMedals+" "+bronzeMedals;  
+		return info;
+		
+	}
 	
 }
