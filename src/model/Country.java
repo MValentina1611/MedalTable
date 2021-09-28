@@ -1,41 +1,43 @@
 package model;
 
+
 public class Country {
 
 	private String countryName; 
-	private Medal countryMedal;
-	private int medalsAmount;
+	private int goldMedals, silverMedales, bronzeMedals;
 	
-	public Country(String countryName, Medal countryMedal, int medalsAmount) {
+	public Country(String countryName, int goldMedals, int silverMedales, int bronzeMedals) {
 		this.countryName = countryName;
-		this.countryMedal = countryMedal;
-		this.medalsAmount = medalsAmount;
+		this.goldMedals = goldMedals;
+		this.silverMedales = silverMedales;
+		this.bronzeMedals = bronzeMedals;
+		
 	}
-
 	public String getCountryName() {
 		return countryName;
 	}
-
-	public Medal getCountryMedal() {
-		return countryMedal;
+	public int getGoldMedals() {
+		return goldMedals;
 	}
-
-	public int getMedalsAmount() {
-		return medalsAmount;
+	public int getSilverMedales() {
+		return silverMedales;
 	}
-
+	public int getBronzeMedals() {
+		return bronzeMedals;
+	}
 	public void setCountryName(String countryName) {
 		this.countryName = countryName;
 	}
-
-	public void setCountryMedal(Medal countryMedal) {
-		this.countryMedal = countryMedal;
+	public void setGoldMedals(int goldMedals) {
+		this.goldMedals = goldMedals;
+	}
+	public void setSilverMedales(int silverMedales) {
+		this.silverMedales = silverMedales;
+	}
+	public void setBronzeMedals(int bronzeMedals) {
+		this.bronzeMedals = bronzeMedals;
 	}
 
-	public void setMedalsAmount(int medalsAmount) {
-		this.medalsAmount = medalsAmount;
-	}
-	
 	
 	
 }
