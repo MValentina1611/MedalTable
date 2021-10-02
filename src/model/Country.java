@@ -78,7 +78,7 @@ public class Country implements Comparable<Country>{
 				}
 				else
 				{
-					result = countryName.compareTo(c.getCountryName());
+					result = c.getCountryName().compareTo(countryName);
 				}
 			}
 			

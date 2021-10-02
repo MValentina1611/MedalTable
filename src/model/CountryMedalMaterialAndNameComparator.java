@@ -38,7 +38,7 @@ public class CountryMedalMaterialAndNameComparator implements Comparator<Country
 				}
 				else
 				{
-					result = o1.getCountryName().compareTo(o2.getCountryName());
+					result = o2.getCountryName().compareTo(o1.getCountryName());
 				}
 			}
 			

@@ -109,6 +109,12 @@ public class MedalTableSystem {
 		medalTable.sortFemaleByMedalMaterialAndName();
 		printArrayList(medalTable.getFemaleCategory());
 		System.out.println("----------\n");
+		
+		System.out.println("Combine");
+		medalTable.sortBothCategories();
+		printArrayList(medalTable.getBothCategories());
+		System.out.println("----------\n");
+		
 	}
 	
 	public void askForCountries()
@@ -133,6 +139,13 @@ public class MedalTableSystem {
 				try{
 					medalTable.addCountry(1, countryName,Integer.parseInt(info[1]) , Integer.parseInt(info[2]),Integer.parseInt(info[3]));
 					medalTable.addCountry(2, countryName,Integer.parseInt(info[4]),Integer.parseInt(info[5]),Integer.parseInt(info[6]));
+					
+					int totalGolds = Integer.parseInt(info[1]) + Integer.parseInt(info[4]);
+					int totalSilver = Integer.parseInt(info[2]) + Integer.parseInt(info[5]);
+					int totalBronze = Integer.parseInt(info[3]) + Integer.parseInt(info[6]);					
+					Country country = new Country(info[0], totalGolds, totalSilver,totalBronze);
+					medalTable.getBothCategories().add(country);
+					
 				}catch(NumberFormatException e){}
 			}
 		}

@@ -12,13 +12,17 @@ public class MedalTable{
 
 	private List<Country> maleCategory;
 	private List<Country> femaleCategory;
-	private int amountOfCountries;
+	private List<Country> bothCategories;
+ 	private int amountOfCountries;
+	private int totalGold, totalSilver, totalBronze;
+	
 	private final String TEST_FILE = "data/testFile.txt";
 	
 	public MedalTable() {
 		
 		this.maleCategory = new ArrayList<Country>();
 		this.femaleCategory = new ArrayList<Country>();
+		this.bothCategories = new ArrayList<Country>();
 		
 	}
 	
@@ -44,6 +48,9 @@ public class MedalTable{
 		return femaleCategory;
 	}
 
+	public List<Country> getBothCategories() {
+		return bothCategories;
+	}
 	public int getAmountOfCountries() {
 		return amountOfCountries;
 	}
@@ -93,6 +100,7 @@ public class MedalTable{
 	
 
 	//FirstReport
+	
 	public void sortByMedalMaterialAndName()
 	{
 		Comparator<Country> c1 = new CountryMedalMaterialAndNameComparator();
@@ -100,9 +108,84 @@ public class MedalTable{
 	}
 	
 	//SecondReport
+	
 	public void sortFemaleByMedalMaterialAndName()
 	{
 		Collections.sort(femaleCategory);
+	}
+	
+	//ThirdReport
+	
+	/*
+	public void createListOfBothCategories()
+	{
+		
+		for(int i = 0; i < maleCategory.size(); i++)
+		{
+			 totalGold = maleCategory.get(i).getGoldMedals() + femaleCategory.get(i).getGoldMedals();
+			 totalSilver = maleCategory.get(i).getSilverMedals() + femaleCategory.get(i).getSilverMedals();
+			 totalBronze = maleCategory.get(i).getBronzeMedals() + femaleCategory.get(i).getBronzeMedals();
+			 
+			Country country = new Country(maleCategory.get(i).getCountryName(), totalGold, totalSilver,totalBronze); 
+			bothCategories.add(country);
+		}
+	}
+	*/
+	
+	//sortBySelection
+	
+	public void sortBothCategories()
+	{
+		int pos = 0;
+		while(pos < bothCategories.size())
+		{
+			Country max = bothCategories.get(pos);
+		
+			for(int i = pos+1; i < bothCategories.size(); i++)
+			{
+				if( bothCategories.get(i).getGoldMedals() > max.getGoldMedals() )
+				{
+					Country temp = bothCategories.get(i);
+					bothCategories.set(i,max);
+					max = temp;
+				}
+				else if( bothCategories.get(i).getGoldMedals() == max.getGoldMedals())
+				{
+					if( bothCategories.get(i).getSilverMedals() > max.getSilverMedals() )
+					{
+						Country temp = bothCategories.get(i);
+						bothCategories.set(i,max);
+						max = temp;
+					}
+					else if(bothCategories.get(i).getSilverMedals() == max.getSilverMedals())
+					{
+						if( bothCategories.get(i).getBronzeMedals() > max.getBronzeMedals() )
+						{
+							Country temp = bothCategories.get(i);
+							bothCategories.set(i,max);
+							max = temp;
+						}
+						else if(bothCategories.get(i).getSilverMedals() == max.getSilverMedals())
+						{
+							if(bothCategories.get(i).getCountryName().compareTo(max.getCountryName()) > 0)
+							{
+								Country temp = bothCategories.get(i);
+								bothCategories.set(i,max);
+								max = temp;
+							}
+							else if( bothCategories.get(i).getCountryName().compareTo(max.getCountryName()) == 0 ) 
+							{
+								Country temp = bothCategories.get(i);
+								bothCategories.set(i,max);
+								max = temp;
+							}
+						}
+					}
+				}
+			}
+			bothCategories.set(pos, max);
+			pos++;
+		}
 	}
 	
 	
