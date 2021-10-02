@@ -99,4 +99,11 @@ public class MedalTable{
 		Collections.sort(maleCategory, c1);
 	}
 	
+	//SecondReport
+	public void sortFemaleByMedalMaterialAndName()
+	{
+		Collections.sort(femaleCategory);
+	}
+	
+	
 }

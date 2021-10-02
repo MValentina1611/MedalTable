@@ -105,7 +105,10 @@ public class MedalTableSystem {
 		printArrayList(medalTable.getMaleCategory());
 		System.out.println("----------\n");
 
-		
+		System.out.println("Female");
+		medalTable.sortFemaleByMedalMaterialAndName();
+		printArrayList(medalTable.getFemaleCategory());
+		System.out.println("----------\n");
 	}
 	
 	public void askForCountries()

@@ -1,7 +1,7 @@
 package model;
 
 
-public class Country {
+public class Country implements Comparable<Country>{
 
 	private String countryName; 
 	private int goldMedals, silverMedals, bronzeMedals;
@@ -43,6 +43,48 @@ public class Country {
 		String info = countryName +" "+goldMedals+" "+silverMedals+" "+bronzeMedals;  
 		return info;
 		
+	}
+	@Override
+	public int compareTo(Country c) 
+	{
+		int result;
+		if(goldMedals > c.getGoldMedals())
+		{
+			result = 1;
+		}
+		else if( goldMedals < c.getGoldMedals())
+		{
+			result = -1;
+		}
+		else
+		{
+			if(silverMedals > c.getSilverMedals())
+			{
+				result = 1;
+			}
+			else if(silverMedals< c.getSilverMedals())
+			{
+				result = -1;
+			}
+			else
+			{
+				if( bronzeMedals > c.getBronzeMedals())
+				{
+					result = 1;
+				}
+				else if(  bronzeMedals < c.getBronzeMedals())
+				{
+					result = -1;
+				}
+				else
+				{
+					result = countryName.compareTo(c.getCountryName());
+				}
+			}
+			
+		}
+			
+		return result;
 	}
 	
 }
