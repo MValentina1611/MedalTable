@@ -77,8 +77,8 @@ public class MedalTable{
 				int numGoldM = Integer.parseInt(info[1]);
 				int numSilverM = Integer.parseInt(info[2]);
 				int numBronzeM = Integer.parseInt(info[3]);
-				int numGoldF = Integer.parseInt(info[4]);
-				int numSilverF = Integer.parseInt(info[5]);
+				//int numGoldF = Integer.parseInt(info[4]);
+				//int numSilverF = Integer.parseInt(info[5]);
 				//int numBronzeF = Integer.parseInt(info[6]);
 				
 				addCountry(1,name,numGoldM,numSilverM,numBronzeM);

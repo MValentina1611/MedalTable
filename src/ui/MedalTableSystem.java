@@ -46,7 +46,7 @@ public class MedalTableSystem {
 			"=====WELCOME TO THE MEDAL TABLE SYSTEM=====\n" +
 			"Pick an option \n" +
 			"(1) Use default info\n" +
-			"(2) Show Billboards\n"+								
+			"(2) Type the info\n"+								
 			"(0) Exit";
 		
 		System.out.println(menu);
@@ -69,7 +69,8 @@ public class MedalTableSystem {
 				break;
 	
 			case 2:
-				
+				askForCountries();
+				showReports();
 				break;
 		
 			default:
@@ -98,9 +99,48 @@ public class MedalTableSystem {
 	
 	public void showReports()
 	{
+
 		System.out.println("Male");
 		medalTable.sortByMedalMaterialAndName();
 		printArrayList(medalTable.getMaleCategory());
 		System.out.println("----------\n");
+
+		
+	}
+	
+	public void askForCountries()
+	{
+		String inputInfo = "";
+		int amount = 0;
+		
+		System.out.println("How many contries do you want register?" );
+		amount = reader.nextInt();
+		reader.nextLine();
+		System.out.println("Type the info separate by semicolon" +"\n");
+		
+		for(int i = 0; i<amount; i++)
+		{
+			inputInfo = reader.nextLine() + ";";
+			System.out.println("\n");
+			
+			if(inputInfo != null)
+			{
+				String info[] = inputInfo.split("\\;");
+				String countryName = info[0];
+				try{
+					medalTable.addCountry(1, countryName,Integer.parseInt(info[1]) , Integer.parseInt(info[2]),Integer.parseInt(info[3]));
+					medalTable.addCountry(2, countryName,Integer.parseInt(info[4]),Integer.parseInt(info[5]),Integer.parseInt(info[6]));
+				}catch(NumberFormatException e){}
+			}
+		}
+
+	}
+	
+	public void printArray(String [] array)
+	{
+		for(int i =0; i < array.length; i++)
+		{
+			System.out.println(array[i]);
+		}
 	}
 }

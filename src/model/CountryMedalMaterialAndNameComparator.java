@@ -22,7 +22,7 @@ public class CountryMedalMaterialAndNameComparator implements Comparator<Country
 			{
 				result = 1;
 			}
-			else if(o1.getGoldMedals()< o2.getGoldMedals())
+			else if(o1.getSilverMedals()< o2.getSilverMedals())
 			{
 				result = -1;
 			}
@@ -46,6 +46,7 @@ public class CountryMedalMaterialAndNameComparator implements Comparator<Country
 			
 		return result;
 	}
+
 
 	
 	
