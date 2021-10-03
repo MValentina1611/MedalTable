@@ -76,20 +76,26 @@ public class MedalTable{
 		
 		while( line != null )
 		{
-
 				String [] info = line.split("\\;");
 				String name = info[0];
+
 			try 
 			{
 				int numGoldM = Integer.parseInt(info[1]);
 				int numSilverM = Integer.parseInt(info[2]);
 				int numBronzeM = Integer.parseInt(info[3]);
-				//int numGoldF = Integer.parseInt(info[4]);
-				//int numSilverF = Integer.parseInt(info[5]);
-				//int numBronzeF = Integer.parseInt(info[6]);
+				int numGoldF = Integer.parseInt(info[4]);
+				int numSilverF = Integer.parseInt(info[5]);
+				int numBronzeF = Integer.parseInt(info[6]);
 				
 				addCountry(1,name,numGoldM,numSilverM,numBronzeM);
-				//addCountry(2,name,numGoldF,numSilverF,numBronzeF);
+				addCountry(2,name,numGoldF,numSilverF,numBronzeF);
+				int totalGolds = Integer.parseInt(info[1]) + Integer.parseInt(info[4]);
+				int totalSilver = Integer.parseInt(info[2]) + Integer.parseInt(info[5]);
+				int totalBronze = Integer.parseInt(info[3]) + Integer.parseInt(info[6]);					
+				Country country = new Country(info[0], totalGolds, totalSilver,totalBronze);
+				bothCategories.add(country);
+				
 			}
 			catch(NumberFormatException ex){}
 								
@@ -115,23 +121,7 @@ public class MedalTable{
 	}
 	
 	//ThirdReport
-	
-	/*
-	public void createListOfBothCategories()
-	{
 		
-		for(int i = 0; i < maleCategory.size(); i++)
-		{
-			 totalGold = maleCategory.get(i).getGoldMedals() + femaleCategory.get(i).getGoldMedals();
-			 totalSilver = maleCategory.get(i).getSilverMedals() + femaleCategory.get(i).getSilverMedals();
-			 totalBronze = maleCategory.get(i).getBronzeMedals() + femaleCategory.get(i).getBronzeMedals();
-			 
-			Country country = new Country(maleCategory.get(i).getCountryName(), totalGold, totalSilver,totalBronze); 
-			bothCategories.add(country);
-		}
-	}
-	*/
-	
 	//sortBySelection
 	
 	public void sortBothCategories()
@@ -240,7 +230,5 @@ public class MedalTable{
 
 	}
 	
-	
-	
-	
+
 }

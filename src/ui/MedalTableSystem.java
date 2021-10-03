@@ -104,23 +104,23 @@ public class MedalTableSystem {
 		System.out.println("Male");
 		medalTable.sortByMedalMaterialAndName();
 		printArrayList(medalTable.getMaleCategory());
-		System.out.println("----------\n");
+		System.out.println("\n----------\n");
 
 		System.out.println("Female");
 		medalTable.sortFemaleByMedalMaterialAndName();
 		printArrayList(medalTable.getFemaleCategory());
-		System.out.println("----------\n");
+		System.out.println("\n----------\n");
 		
-		System.out.println("Combine");
+		System.out.println("Combined");
 		medalTable.sortBothCategories();
 		printArrayList(medalTable.getBothCategories());
-		System.out.println("----------\n");
+		System.out.println("\n----------\n");
 		
-		System.out.println("Combine");
+		System.out.println("Combined");
 		medalTable.sortBothCategoriesByInsertion();
 		Collections.reverse(medalTable.getBothCategories());
 		printArrayList(medalTable.getBothCategories());
-		System.out.println("----------\n");
+
 		
 	}
 	
@@ -129,16 +129,14 @@ public class MedalTableSystem {
 		String inputInfo = "";
 		int amount = 0;
 		
-		System.out.println("How many contries do you want register?" );
+		System.out.println("How many countries do you want register?" );
 		amount = reader.nextInt();
 		reader.nextLine();
-		System.out.println("Type the info separate by semicolon" +"\n");
+		System.out.println("Type the info of each country separate by semicolon" +"\n");
 		
 		for(int i = 0; i<amount; i++)
 		{
-			inputInfo = reader.nextLine() + ";";
-			System.out.println("\n");
-			
+			inputInfo = reader.nextLine() + ";";	
 			if(inputInfo != null)
 			{
 				String info[] = inputInfo.split("\\;");
