@@ -1,6 +1,7 @@
 package ui;
 
 import java.io.IOException;
+import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
@@ -112,6 +113,12 @@ public class MedalTableSystem {
 		
 		System.out.println("Combine");
 		medalTable.sortBothCategories();
+		printArrayList(medalTable.getBothCategories());
+		System.out.println("----------\n");
+		
+		System.out.println("Combine");
+		medalTable.sortBothCategoriesByInsertion();
+		Collections.reverse(medalTable.getBothCategories());
 		printArrayList(medalTable.getBothCategories());
 		System.out.println("----------\n");
 		

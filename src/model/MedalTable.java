@@ -14,7 +14,7 @@ public class MedalTable{
 	private List<Country> femaleCategory;
 	private List<Country> bothCategories;
  	private int amountOfCountries;
-	private int totalGold, totalSilver, totalBronze;
+	//private int totalGold, totalSilver, totalBronze;
 	
 	private final String TEST_FILE = "data/testFile.txt";
 	
@@ -187,6 +187,60 @@ public class MedalTable{
 			pos++;
 		}
 	}
+	
+	//Fourth report
+	
+	//sortByInsertion
+	public void sortBothCategoriesByInsertion()
+	{
+		
+		for( int i = 1; i < bothCategories.size(); i++ )
+		{
+			Country aux = bothCategories.get(i); 
+			int j = i-1;
+			
+			while( (j >= 0)  && (aux.getGoldMedals() < bothCategories.get(j).getGoldMedals()) ) 
+			{
+				bothCategories.set(j+1, bothCategories.get(j));
+				j--;
+				
+				if( bothCategories.get(i).getGoldMedals() == aux.getGoldMedals())
+				{
+					if( bothCategories.get(i).getSilverMedals() > aux.getSilverMedals() )
+					{
+						bothCategories.set(j+1, bothCategories.get(j));
+						j--;
+					}
+					else if(bothCategories.get(i).getSilverMedals() == aux.getSilverMedals())
+					{
+						if( bothCategories.get(i).getBronzeMedals() > aux.getBronzeMedals() )
+						{
+							bothCategories.set(j+1, bothCategories.get(j));
+							j--;
+						}
+						else if(bothCategories.get(i).getSilverMedals() == aux.getSilverMedals())
+						{
+							if(bothCategories.get(i).getCountryName().compareTo(aux.getCountryName()) > 0)
+							{
+								bothCategories.set(j+1, bothCategories.get(j));
+								j--;
+							}
+							else if( bothCategories.get(i).getCountryName().compareTo(aux.getCountryName()) == 0 ) 
+							{
+								bothCategories.set(j+1, bothCategories.get(j));
+								j--;
+							}
+						}
+					}
+				}
+			}
+				
+				bothCategories.set(j+1, aux);
+		}
+
+	}
+	
+	
 	
 	
 }
